@@ -1,6 +1,7 @@
 package com.pojo;
 
 import java.awt.AWTException;
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.JavascriptExecutor;
@@ -72,16 +73,14 @@ public class ClkTab extends BaseClass{
 	}
 
 
-	public void clkTab() throws AWTException, InterruptedException {
+	public void clkTab() throws AWTException, InterruptedException, IOException {
 	
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].setAttribute('value','20/01')", getsearchField());
-		insertText(getsearchField(), "20/01");
+		insertText(getsearchField(), valueFromProperty("projectname"));
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-		
 		js.executeScript("arguments[0].click()", getProjectOpen());	
 		Thread.sleep(7000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
@@ -97,15 +96,15 @@ public class ClkTab extends BaseClass{
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 	
 	
-//	js.executeScript("arguments[0].setAttribute('value','20/01')", getsearchField());
-	insertText(getsearchField(), "20/01");
+
+	insertText(getsearchField(), valueFromProperty("projectname"));
 	Thread.sleep(10000);
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-	
 	js.executeScript("arguments[0].click()", getProjectOpen());	
 	Thread.sleep(7000);
 	clickButton(getUnitTab());
 	Thread.sleep(5000);
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 	clickButton(getUnitTypeTab());
 	Thread.sleep(10000);
 	

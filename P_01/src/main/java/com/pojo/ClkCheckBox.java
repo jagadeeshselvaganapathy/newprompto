@@ -1,6 +1,7 @@
 package com.pojo;
 
 import java.awt.AWTException;
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.JavascriptExecutor;
@@ -158,7 +159,7 @@ public class ClkCheckBox extends BaseClass{
 		return searchField;
 	}
 
-	public void clkCheckBox() throws AWTException, InterruptedException {
+	public void clkCheckBox() throws AWTException, InterruptedException, IOException {
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 	clickButton(getSettingTab());
@@ -181,7 +182,7 @@ public class ClkCheckBox extends BaseClass{
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 
-	insertText(getsearchField(), "20/01");
+	insertText(getsearchField(), valueFromProperty("projectname"));
 	Thread.sleep(10000);
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 	
@@ -202,13 +203,13 @@ public class ClkCheckBox extends BaseClass{
 	Thread.sleep(15000);
 	clickButton(getAddNewUps());
 	
-	Thread.sleep(7000);
+	Thread.sleep(15000);
 	clickButton(getUspCheckBox());
 	Thread.sleep(5000);
 	
 	
 	clickButton(getTurnTableTab());
-	Thread.sleep(7000);
+	Thread.sleep(15000);
 	clickButton(getAddNewTurnTable());
 	Thread.sleep(15000);
 	

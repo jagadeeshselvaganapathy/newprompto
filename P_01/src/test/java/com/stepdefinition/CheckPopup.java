@@ -28,7 +28,7 @@ public class CheckPopup extends BaseClass{
 	
 	}
 	@When("user validate click popups")
-	public void userValidateClickPopups() throws InterruptedException, AWTException {
+	public void userValidateClickPopups() throws InterruptedException, AWTException, IOException {
 		
 		ClkPopups c = new ClkPopups();
 	   	c.clkPopups();

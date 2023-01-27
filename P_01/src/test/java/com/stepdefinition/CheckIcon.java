@@ -28,7 +28,7 @@ public class CheckIcon extends BaseClass{
 	
 	}
 	@When("user validate click Icons")
-	public void userValidateClickIcons() throws InterruptedException {
+	public void userValidateClickIcons() throws InterruptedException, IOException {
 		
 		ClkIcons c = new ClkIcons();
 		c.clkIcons();

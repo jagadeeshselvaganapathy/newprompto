@@ -1,5 +1,6 @@
 package com.pojo;
 
+import java.io.IOException;
 import java.time.Duration;
 import java.util.Set;
 
@@ -18,7 +19,7 @@ public class ClkIcons extends BaseClass{
 		}
 		
 		
-		@FindBy(xpath = "//div[@class='sc-lhMiDA glmqMy']")
+		@FindBy(xpath = "/html[1]/body[1]/div[2]/div[1]/div[2]/div[2]")
 		private WebElement tutorialButton;
 
 		@FindBy(xpath = "//iframe[@title='Modal']")
@@ -41,6 +42,9 @@ public class ClkIcons extends BaseClass{
 		
 		@FindBy(xpath = "(//*[name()='svg'])[8]")
 		private WebElement pencilEditProject;
+		
+		@FindBy(xpath = "//button[@id='sidebarButton_projects']")
+		private WebElement projectThumbnail;
 	
 		
 		public WebElement getPencilEditProject() {
@@ -85,14 +89,19 @@ public class ClkIcons extends BaseClass{
 		public WebElement getProjectOpen() {
 			return projectOpen;
 		}
+		
+		public WebElement getProjectThumbnail() {
+			return projectThumbnail;
+		}
 
 
 
-	public void clkIcons() throws InterruptedException {
+	public void clkIcons() throws InterruptedException, IOException {
 
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-		clickButton(getTutorialButton());
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click()", getTutorialButton());
 		Thread.sleep(5000);
 		driver.switchTo().frame(getIframeSwich());
 		Thread.sleep(5000);
@@ -119,15 +128,16 @@ public class ClkIcons extends BaseClass{
 				}
 				Thread.sleep(5000);
 				
-		insertText(getsearchField(), "20/01");		
+		insertText(getsearchField(), valueFromProperty("projectname"));		
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click()", getProjectOpen());
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		clickButton(getPencilEditProject());
 		Thread.sleep(5000);
+		clickButton(getProjectThumbnail());
+		Thread.sleep(10000);
 				
 		
 	}

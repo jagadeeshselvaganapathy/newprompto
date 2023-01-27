@@ -27,7 +27,7 @@ public class CheckTextField extends BaseClass{
 	
 	}
 	@When("user validate click TextField")
-	public void userValidateClickTextField() throws InterruptedException, AWTException {
+	public void userValidateClickTextField() throws InterruptedException, AWTException, IOException {
 		
 
 		ClkTextfield c = new ClkTextfield();

@@ -5,6 +5,7 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.Set;
 
@@ -72,7 +73,7 @@ public class ClkChldObjs extends BaseClass{
 			return saveButton;
 		}
 
-	public void clkChldObjs() throws InterruptedException, AWTException {
+	public void clkChldObjs() throws InterruptedException, AWTException, IOException {
 
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
@@ -108,7 +109,7 @@ public class ClkChldObjs extends BaseClass{
 		rb.keyRelease(KeyEvent.VK_BACK_SPACE);
 	//	JavascriptExecutor js = (JavascriptExecutor) driver;
 	//	js.executeScript("arguments[0].setAttribute('value','Tst')", getFirstName());
-		insertText(getFirstName(), "Test");
+		insertText(getFirstName(), valueFromProperty("firstname"));
 		Thread.sleep(5000);
 		
 		clickButton(getLastName());
@@ -119,10 +120,10 @@ public class ClkChldObjs extends BaseClass{
 		rb.keyPress(KeyEvent.VK_BACK_SPACE);
 		rb.keyRelease(KeyEvent.VK_BACK_SPACE);
 //		js.executeScript("arguments[0].setAttribute('value','321')", getLastName());
-		insertText(getLastName(), "9876");
-		Thread.sleep(5000);
-		clickButton(getSaveButton());
+		insertText(getLastName(), valueFromProperty("lastname"));
 		Thread.sleep(10000);
+		clickButton(getSaveButton());
+		Thread.sleep(15000);
 		
 				
 	}

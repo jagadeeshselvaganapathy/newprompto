@@ -4,6 +4,7 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.Set;
 
@@ -21,44 +22,8 @@ public class ClkColor extends BaseClass {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//span[@class='Button_button__label__1h86U Button_spanStyle__2u_Xo']")
-	private WebElement addNewProject;
-
-	@FindBy(xpath = "(//div[@class='sc-gHjyzD DkGjD'])[1]/parent::div")
-	private WebElement ongoingColorCheck;
-
-	@FindBy(xpath = "//div[@class='sc-jlRLRk cbTvaY css-2b097c-container']")
-	private WebElement projectStatus;
-
-	@FindBy(xpath = "//div[@class='sc-jlRLRk cbTvaY css-2b097c-container']")
-	private WebElement ongoingStatus;
-
-	@FindBy(xpath = "//input[@id='projectTitle']")
-	private WebElement projectName;
-
-	@FindBy(xpath = "//input[@placeholder='Enter an address']")
-	private WebElement projectAddress;
-
-	@FindBy(xpath = "//span[normalize-space()='Add project']")
-	private WebElement addProject;
-
-	@FindBy(xpath = "(//div[@class='sc-gHjyzD DkGjD'])[1]")
+	@FindBy(xpath = "(//div[@color='#209cea'])[1]")
 	private WebElement statusColor;
-	
-	
-
-
-	@FindBy(xpath = "(//*[name()='svg'][@height='1em'][@width='1em'])[5]")
-	private WebElement projectOne;
-
-	@FindBy(xpath = "(//*[name()='svg'])[8]")
-	private WebElement editProject;
-
-	@FindBy(xpath = "//span[normalize-space()='Archive']")
-	private WebElement archiveButton;
-
-	@FindBy(xpath = "//span[normalize-space()='Archive project']")
-	private WebElement archiveProjectButton;
 
 	@FindBy(xpath = "//span[normalize-space()='Settings']")
 	private WebElement settingButton;
@@ -66,15 +31,14 @@ public class ClkColor extends BaseClass {
 	@FindBy(xpath = "//p[normalize-space()='Portfolio']")
 	private WebElement portfolioTab;
 
-	@FindBy(xpath = "(//*[@class='svg-inline--fa fa-eye-dropper fa-1x sc-jathZL sc-lhqAt hFDkux'])[3]")
+	@FindBy(xpath = "(//*[@data-icon='eye-dropper'])[3]")
 	private WebElement pencil;
 
 	@FindBy(xpath = "//div[@class='react-colorful__pointer react-colorful__hue-pointer']")
 	private WebElement color;
 
-	@FindBy(xpath = "//*[@class='svg-inline--fa fa-check fa-1x sc-jathZL sc-lhqAt hFDkux']")
+	@FindBy(xpath = "(//*[@aria-hidden='true'])[18]")
 	private WebElement colorTick;
-
 
 	@FindBy(xpath = "//button[@id='sidebarButton_projects']")
 	private WebElement projectSideBar;
@@ -94,60 +58,17 @@ public class ClkColor extends BaseClass {
 	@FindBy(xpath = "//div[@class='react-colorful__pointer react-colorful__hue-pointer']")
 	private WebElement colorTwo;
 
-	@FindBy(xpath = "//*[@class='svg-inline--fa fa-check fa-1x sc-jathZL sc-lhqAt hFDkux']")
+	@FindBy(xpath = "(//*[@aria-hidden='true'])[24]")
 	private WebElement colorTickTwo;
-	
+
 	@FindBy(xpath = "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[7]/div[2]/div[1]/div[2]/input[1]")
 	private WebElement colorcode;
-	
+
 	@FindBy(xpath = "//input[@id='searchField']")
 	private WebElement searchField;
 
-
-	
-
 	public WebElement getcolorcode() {
 		return colorcode;
-	}
-	
-	public WebElement getAddNewProject() {
-		return addNewProject;
-	}
-
-	public WebElement getProjectStatus() {
-		return projectStatus;
-	}
-
-	public WebElement getOngoingStatus() {
-		return ongoingStatus;
-	}
-
-	public WebElement getProjectName() {
-		return projectName;
-	}
-
-	public WebElement getProjectAddress() {
-		return projectAddress;
-	}
-
-	public WebElement getAddProject() {
-		return addProject;
-	}
-
-	public WebElement getProjectOne() {
-		return projectOne;
-	}
-
-	public WebElement getEditProject() {
-		return editProject;
-	}
-
-	public WebElement getArchiveButton() {
-		return archiveButton;
-	}
-
-	public WebElement getArchiveProjectButton() {
-		return archiveProjectButton;
 	}
 
 	public WebElement getSettingButton() {
@@ -197,30 +118,26 @@ public class ClkColor extends BaseClass {
 	public WebElement getColorTickTwo() {
 		return colorTickTwo;
 	}
-	
+
 	public WebElement getsearchField() {
 		return searchField;
 	}
 
-	public void clkColor() throws InterruptedException, AWTException {
+	public void clkColor() throws InterruptedException, AWTException, IOException {
 
 		Thread.sleep(10000);
-		
+
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		String value2 = statusColor.getCssValue("background-color");
-
 		if (value2.equals("rgba(32, 156, 234, 1)")) {
-
 			System.out.println("color verified");
-
 		} else {
-
 			System.out.println("color not verified");
-
 		}
-
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
+		
+		
 
 		clickButton(getSettingButton());
 		Thread.sleep(5000);
@@ -229,28 +146,20 @@ public class ClkColor extends BaseClass {
 		clickButton(getPencil());
 		Thread.sleep(10000);
 		Actions a = new Actions(driver);
-
 		a.dragAndDropBy(getColor(), 50, 0).build().perform();
-		// clickButton(getColor());
-		System.out.println("yes");
 		Thread.sleep(5000);
 		clickButton(getColorTick());
+		
 
 		Thread.sleep(5000);
 		clickButton(getProjectSideBar());
 		Thread.sleep(10000);
-		
-		
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-
-		insertText(getsearchField(), "20/01");
+		insertText(getsearchField(), valueFromProperty("projectname"));
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-		
 		js.executeScript("arguments[0].click()", getProjectOneTwo());
-		
-		
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		Thread.sleep(5000);
 		clickButton(getShowCaseEditor());
@@ -262,7 +171,7 @@ public class ClkColor extends BaseClass {
 
 		clickButton(getcolorcode());
 		Robot rb = new Robot();
-		StringSelection ss = new StringSelection("25d991");
+		StringSelection ss = new StringSelection(valueFromProperty("color"));
 		rb.keyPress(KeyEvent.VK_CONTROL);
 		rb.keyPress(KeyEvent.VK_A);
 		rb.keyRelease(KeyEvent.VK_CONTROL);
@@ -271,18 +180,11 @@ public class ClkColor extends BaseClass {
 		rb.keyPress(KeyEvent.VK_BACK_SPACE);
 		rb.keyRelease(KeyEvent.VK_BACK_SPACE);
 		rb.delay(2000);
-		
 		rb.keyPress(KeyEvent.VK_CONTROL);
 		rb.keyPress(KeyEvent.VK_V);
 		rb.delay(2000);
 		rb.keyRelease(KeyEvent.VK_CONTROL);
 		rb.keyRelease(KeyEvent.VK_V);
-		
-		
-//		js.executeScript("arguments[0].setAttribute('value','ab4666')", getColor());
-//		insertText(getColor(), "ab4666");
-	//	a.dragAndDropBy(getColorTwo(), 50, 0).build().perform();
-		System.out.println("yes");
 		Thread.sleep(5000);
 		clickButton(getColorTickTwo());
 		Thread.sleep(5000);

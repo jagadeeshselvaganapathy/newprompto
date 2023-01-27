@@ -30,7 +30,7 @@ public class CheckCheckBox extends BaseClass{
 	
 	 
 	@When("user validate click checkbox")
-	public void userValidateClickCheckbox() throws AWTException, InterruptedException {
+	public void userValidateClickCheckbox() throws AWTException, InterruptedException, IOException {
 		
 		ClkCheckBox c = new ClkCheckBox();
     	c.clkCheckBox();

@@ -49,7 +49,7 @@ public class LoginPage extends BaseClass {
 
 	public void login(String username, String password) throws InterruptedException, IOException, AWTException {
 		
-		Thread.sleep(10000);
+		
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 
 

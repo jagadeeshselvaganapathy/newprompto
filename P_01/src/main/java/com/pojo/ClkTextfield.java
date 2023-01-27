@@ -3,6 +3,7 @@ package com.pojo;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.JavascriptExecutor;
@@ -17,7 +18,7 @@ public class ClkTextfield  extends BaseClass{
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath = "//span[@class='Button_button__label__1h86U Button_spanStyle__2u_Xo']")
+	@FindBy(xpath = "(//button[normalize-space()='Add new project'])[1]")
 	private WebElement addProjectButton;
 	
 	@FindBy(xpath = "//input[@id='projectTitle']")
@@ -152,7 +153,7 @@ public class ClkTextfield  extends BaseClass{
 
 
 
-	public void clkTextFields() throws InterruptedException, AWTException {
+	public void clkTextFields() throws InterruptedException, AWTException, IOException {
 
 		Thread.sleep(30000);
 	//	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
@@ -170,15 +171,13 @@ public class ClkTextfield  extends BaseClass{
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].setAttribute('value','20/01')", getsearchField());
-		insertText(getsearchField(), "20/01");
+		insertText(getsearchField(), valueFromProperty("projectname"));
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-		
 		js.executeScript("arguments[0].click()", getProjectOpen());
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-		insertText(getTextBox(), "Selenium Automation");
+		insertText(getTextBox(), valueFromProperty("mediatextbox"));
 		Thread.sleep(5000);
 		js.executeScript("arguments[0].click()", getNodePadEdit());
 //		clickButton(getNodePadEdit());
@@ -193,7 +192,7 @@ public class ClkTextfield  extends BaseClass{
 		r.keyPress(KeyEvent.VK_ENTER);
 		r.keyRelease(KeyEvent.VK_ENTER);
 		Thread.sleep(5000);
-        insertText(getNodePadEditText(), "Enter");
+        insertText(getNodePadEditText(), valueFromProperty("medianotepad"));
         Thread.sleep(5000);
         clickButton(getSaveButton());
         
@@ -201,8 +200,8 @@ public class ClkTextfield  extends BaseClass{
         Thread.sleep(30000);
         clickButton(getAddUspButton());
         Thread.sleep(5000);
-        insertText(getAddUspheadline(), "uspheadline");
-        insertText(getAddUspTextBox(), "usptextbox");
+        insertText(getAddUspheadline(), valueFromProperty("uspheadline"));
+        insertText(getAddUspTextBox(), valueFromProperty("usptextbox"));
         Thread.sleep(10000);
         clickButton(getCancelButtontwo());
         Thread.sleep(7000);

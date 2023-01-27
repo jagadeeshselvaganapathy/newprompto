@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -25,7 +26,7 @@ public class ClkUpload extends BaseClass{
 	@FindBy(xpath = "(//p[contains(text(),'Open project')])[1]")
 	private WebElement projectOpen;
 	
-	@FindBy(xpath = "//span[normalize-space()='Add media']")
+	@FindBy(xpath = "//span[normalize-space()='Add Media']")
 	private WebElement addMediaButton;
 	
 	@FindBy(xpath = "//span[normalize-space()='Upload files']")
@@ -86,18 +87,15 @@ public class ClkUpload extends BaseClass{
 		return searchField;
 	}
 
-	public void clkUpload() throws AWTException, InterruptedException {
+	public void clkUpload() throws AWTException, InterruptedException, IOException {
 		
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].setAttribute('value','20/01')", getsearchField());
-		insertText(getsearchField(), "20/01");
+		insertText(getsearchField(), valueFromProperty("projectname"));
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-		
 		js.executeScript("arguments[0].click()", getProjectOpen());
-		
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 	clickButton(getAddMediaButton());
@@ -200,7 +198,7 @@ public class ClkUpload extends BaseClass{
 				
 			js.executeScript("arguments[0].click()", getUpload360Tour());
 			Thread.sleep(5000);
-			insertText(getUpload360TourCode(), "EOE29");
+			insertText(getUpload360TourCode(), valueFromProperty("tourcode"));
 			Thread.sleep(5000);
 			clickButton(getLink360Tour());
 			Thread.sleep(8000);

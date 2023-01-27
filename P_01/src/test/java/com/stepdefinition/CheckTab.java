@@ -29,7 +29,7 @@ public class CheckTab extends BaseClass{
 	
 	}
 	@When("user validate click tab")
-	public void userValidateClickTab() throws AWTException, InterruptedException {
+	public void userValidateClickTab() throws AWTException, InterruptedException, IOException {
 		
 		ClkTab c = new ClkTab();
         c.clkTab();

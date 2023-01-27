@@ -28,7 +28,7 @@ public class CheckThumbnail extends BaseClass{
 	
 	}
 	@When("user validate click thumbnail")
-	public void userValidateClickThumbnail() throws AWTException, InterruptedException {
+	public void userValidateClickThumbnail() throws AWTException, InterruptedException, IOException {
 		
 		ClkthumbNail a = new ClkthumbNail();
 		a.thumbNail();

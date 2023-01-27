@@ -29,7 +29,7 @@ public class CheckSort extends BaseClass{
 	
 	}
 	@When("user validate click sort")
-	public void userValidateClickSort() throws AWTException, InterruptedException {
+	public void userValidateClickSort() throws AWTException, InterruptedException, IOException {
 		
 		ClkSort c = new ClkSort();
 		c.clkSort();

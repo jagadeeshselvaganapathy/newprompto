@@ -29,7 +29,7 @@ public class CheckHover extends BaseClass {
 	
 	}
 	@When("user validate click Hover")
-	public void userValidateClickHover() throws InterruptedException, AWTException {
+	public void userValidateClickHover() throws InterruptedException, AWTException, IOException {
 		
 		ClkHover c = new ClkHover();
     	c.clkHover();

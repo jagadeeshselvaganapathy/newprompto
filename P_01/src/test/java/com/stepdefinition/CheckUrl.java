@@ -29,7 +29,7 @@ public class CheckUrl extends BaseClass {
 	
 	}
 	@When("user validate click url")
-	public void userValidateClickUrl() throws InterruptedException, AWTException {
+	public void userValidateClickUrl() throws InterruptedException, AWTException, IOException {
 		
 		ClkUrl c = new ClkUrl();
 	    c.clkUrl();

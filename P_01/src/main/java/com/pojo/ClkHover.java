@@ -1,6 +1,7 @@
 package com.pojo;
 
 import java.awt.AWTException;
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.JavascriptExecutor;
@@ -23,7 +24,7 @@ public class ClkHover extends BaseClass{
 	private WebElement editThumbnail;
 	
 	
-	@FindBy(xpath = "(//div[@class='sc-gVkuDy lmuuAO'])[1]")
+	@FindBy(xpath = "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]")
 	private WebElement unitThumbNail;
 	
 	@FindBy(xpath = "//span[normalize-space()='Settings']")
@@ -67,7 +68,7 @@ public class ClkHover extends BaseClass{
 	}
 
 
-	public void clkHover() throws AWTException, InterruptedException {
+	public void clkHover() throws AWTException, InterruptedException, IOException {
 		
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
@@ -83,7 +84,7 @@ public class ClkHover extends BaseClass{
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 
-		insertText(getsearchField(), "20/01");
+		insertText(getsearchField(), valueFromProperty("projectname"));
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		

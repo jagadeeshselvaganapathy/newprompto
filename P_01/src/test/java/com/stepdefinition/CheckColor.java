@@ -28,7 +28,7 @@ public class CheckColor extends BaseClass{
 	
 	}
 	@When("user validate click color")
-	public void userValidateClickColor() throws InterruptedException, AWTException {
+	public void userValidateClickColor() throws InterruptedException, AWTException, IOException {
 		
 		 ClkColor c = new ClkColor();
 	 	 c.clkColor();

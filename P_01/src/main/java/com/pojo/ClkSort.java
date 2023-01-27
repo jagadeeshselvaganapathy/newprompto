@@ -1,6 +1,7 @@
 package com.pojo;
 
 import java.awt.AWTException;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.Set;
 
@@ -26,7 +27,7 @@ public class ClkSort extends BaseClass {
 	@FindBy(xpath = "//div[@id='unitsButton']")
 	private WebElement unitTab;
 
-	@FindBy(xpath = "//div[@class='sc-ptdGt ePHOSB']")
+	@FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[1]")
 	private WebElement sortBy;
 
 	@FindBy(xpath = "//li[normalize-space()='Unit name']")
@@ -61,10 +62,10 @@ public class ClkSort extends BaseClass {
 		return searchField;
 	}
 
-	public void clkSort() throws AWTException, InterruptedException {
+	public void clkSort() throws AWTException, InterruptedException, IOException {
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-		insertText(getsearchField(), "20/01");
+		insertText(getsearchField(), valueFromProperty("projectname"));
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		clickButton(getShowcaseButton());

@@ -5,8 +5,11 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -18,7 +21,7 @@ public class ClkDragAndDrop extends BaseClass{
 		PageFactory.initElements(driver, this);
 		}
 	
-	@FindBy(xpath = "//span[@class='Button_button__label__1h86U Button_spanStyle__2u_Xo']")
+	@FindBy(xpath = "//span[normalize-space()='Add new project']")
 	private WebElement addProjectButton;
 	
 	@FindBy(id = "button_null")
@@ -27,10 +30,10 @@ public class ClkDragAndDrop extends BaseClass{
 	@FindBy(xpath = "//span[normalize-space()='cancel']")
 	private WebElement cancelButton;
 	
-	@FindBy(xpath = "(//p[contains(text(),'Open project')])[1]")
+	@FindBy(xpath = "(//div[@class='CardOverlay_hoverBackground__1Rp_v'])[1]")
 	private WebElement projectOpen;
 	
-	@FindBy(xpath = "//span[@class='UploadPrompt_browse__Ib2y9']")
+	@FindBy(xpath = "(//div[normalize-space()='Browse Files'])[1]")
 	private WebElement uploadBrowse;
 	
 	@FindBy(xpath = "//p[normalize-space()='Units']")
@@ -39,8 +42,11 @@ public class ClkDragAndDrop extends BaseClass{
 	@FindBy(xpath = "//span[normalize-space()='Add new unit']")
 	private WebElement addUnitButton;
 	
-	@FindBy(xpath = "//div[@class='sc-kkxqMQ ddIexW']")
+	@FindBy(xpath = "//div[normalize-space()='Browse Files']")
 	private WebElement uploadBrowsetwo;
+	
+	@FindBy(xpath = "//input[@id='searchField']")
+	private WebElement searchField;
 
 		
 	public WebElement getAddProjectButton() {
@@ -81,16 +87,22 @@ public class ClkDragAndDrop extends BaseClass{
 	public WebElement getUploadBrowsetwo() {
 		return uploadBrowsetwo;
 	}
+	
+	public WebElement getsearchField() {
+		return searchField;
+	}
 
 
-	public void clkDragAndDrop() throws AWTException, InterruptedException {
-		
+	public void clkDragAndDrop() throws AWTException, InterruptedException, IOException {
+	
+		Thread.sleep(30000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 	clickButton(getAddProjectButton());
 	clickButton(getDropArea());
 	Robot rb = new Robot();
 	rb.delay(2000);
 	
-	StringSelection ss = new StringSelection("C:\\Users\\DCKLP-060\\Desktop\\prompto.png");
+	StringSelection ss = new StringSelection(System.getProperty("user.dir")+"\\src\\test\\resources\\profile.jpg");
 	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
 	
 	rb.keyPress(KeyEvent.VK_CONTROL);
@@ -102,16 +114,24 @@ public class ClkDragAndDrop extends BaseClass{
 	
 	rb.keyPress(KeyEvent.VK_ENTER);
 	rb.keyRelease(KeyEvent.VK_ENTER);
+	Thread.sleep(10000);
 	clickButton(getCancelButton());
 	
 	
+	Thread.sleep(10000);
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+
+	insertText(getsearchField(), valueFromProperty("projectname"));
+	Thread.sleep(10000);
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 	
-	
-	clickButton(getProjectOpen());
+	js.executeScript("arguments[0].click()", getProjectOpen());
+	Thread.sleep(15000);
 	clickButton(getUploadBrowse());
     rb.delay(2000);
 	
-	StringSelection ss1 = new StringSelection("C:\\Users\\DCKLP-060\\Desktop\\prompto.png");
+	StringSelection ss1 = new StringSelection(System.getProperty("user.dir")+"\\src\\test\\resources\\profile.jpg");
 	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss1, null);
 	
 	rb.keyPress(KeyEvent.VK_CONTROL);
@@ -125,14 +145,17 @@ public class ClkDragAndDrop extends BaseClass{
 	rb.keyRelease(KeyEvent.VK_ENTER);
 	
 	
-	
+	Thread.sleep(20000);
 	
 	clickButton(getUnitButton());
+	Thread.sleep(10000);
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 	clickButton(getAddUnitButton());
+	Thread.sleep(10000);
 	clickButton(getUploadBrowsetwo());
     rb.delay(2000);
 	
-	StringSelection ss2 = new StringSelection("E:\\sample folder\\sample.pdf");
+	StringSelection ss2 = new StringSelection(System.getProperty("user.dir")+"\\src\\test\\resources\\sample.pdf");
 	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss2, null);
 	
 	rb.keyPress(KeyEvent.VK_CONTROL);
@@ -145,7 +168,7 @@ public class ClkDragAndDrop extends BaseClass{
 	rb.keyPress(KeyEvent.VK_ENTER);
 	rb.keyRelease(KeyEvent.VK_ENTER);
 	
-		
+		Thread.sleep(20000);
 	}
 	
 	

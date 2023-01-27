@@ -5,6 +5,7 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -21,10 +22,10 @@ public class ChkDropDown extends BaseClass{
 	}
 	
 
-	@FindBy(xpath = "//p[@class='sc-dwsnSq fAfTxU']")
+	@FindBy(xpath = "//p[normalize-space()='Created date']")
 	private WebElement sortTabProjectList;
 	
-	@FindBy(xpath = "(//p[@class='sc-kiIyQV kfPaIT'])[1]")
+	@FindBy(xpath = "//p[normalize-space()='Project name']")
 	private WebElement projectName;
 	
 	@FindBy(xpath = "//p[normalize-space()='Created date']")
@@ -36,7 +37,7 @@ public class ChkDropDown extends BaseClass{
 	@FindBy(id = "profileCard")
 	private WebElement editProject;
 	
-	@FindBy(xpath = "//div[@class='sc-jlRLRk cbTvaY css-2b097c-container']")
+	@FindBy(xpath = "/html[1]/body[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]")
 	private WebElement projectStatus;
 	
 	@FindBy(xpath = "//div[contains(text(),'Ongoing')]")
@@ -48,7 +49,7 @@ public class ChkDropDown extends BaseClass{
 	@FindBy(xpath = "//p[normalize-space()='Units']")
 	private WebElement unitTabButton;
 	
-	@FindBy(xpath = "//p[@class='sc-dwsnSq fAfTxU']")
+	@FindBy(xpath = "//p[normalize-space()='Unit']")
 	private WebElement unitTabSort;
 	
 	@FindBy(xpath = "//p[normalize-space()='Status']")
@@ -123,15 +124,14 @@ public class ChkDropDown extends BaseClass{
 
 
 
-	public void dropdown() throws AWTException, InterruptedException {
-		Thread.sleep(10000);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
+	public void dropdown() throws AWTException, InterruptedException, IOException {
+		Thread.sleep(20000);
 		clickButton(getSortTabProjectList());
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Thread.sleep(3000);
 		js.executeScript("arguments[0].click()", getprojectName());
 		Thread.sleep(5000);
-		clickButton(getSortTabProjectList());
+		clickButton(getprojectName());
 		Thread.sleep(3000);
 		js.executeScript("arguments[0].click()", getcreatedByDate());
 		
@@ -139,13 +139,10 @@ public class ChkDropDown extends BaseClass{
 		
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-		insertText(getsearchField(), "20/01");
+		insertText(getsearchField(), valueFromProperty("projectname"));
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-		
 		js.executeScript("arguments[0].click()", getOpenProjectTab());
-
-		
 		Thread.sleep(5000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		clickButton(getEditProject());
@@ -164,7 +161,11 @@ public class ChkDropDown extends BaseClass{
 		Thread.sleep(5000);
 		js.executeScript("arguments[0].click()", getstatus());
 		Thread.sleep(5000);
-				
+		clickButton(getstatus());
+		Thread.sleep(5000);
+		js.executeScript("arguments[0].click()", getUnitTabSort());
+		Thread.sleep(5000);
+		
 	}
 	
 }

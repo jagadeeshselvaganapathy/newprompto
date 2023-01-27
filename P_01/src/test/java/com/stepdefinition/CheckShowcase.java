@@ -29,7 +29,7 @@ public class CheckShowcase extends BaseClass{
 	
 	}
 	@When("user validate click showcase")
-	public void userValidateClickShowcase() throws AWTException, InterruptedException {
+	public void userValidateClickShowcase() throws AWTException, InterruptedException, IOException {
 		
 		ClkShowcase c = new ClkShowcase();
 		c.clkShowcase();

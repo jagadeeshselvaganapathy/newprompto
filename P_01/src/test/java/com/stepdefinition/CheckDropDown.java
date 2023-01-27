@@ -28,7 +28,7 @@ public class CheckDropDown extends BaseClass {
 	
 	}
 	@When("user validate click dropdown")
-	public void userValidateClickDropdown() throws AWTException, InterruptedException {
+	public void userValidateClickDropdown() throws AWTException, InterruptedException, IOException {
 		
 		ChkDropDown a = new ChkDropDown();
 		a.dropdown();

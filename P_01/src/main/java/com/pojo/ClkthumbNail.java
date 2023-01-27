@@ -1,4 +1,4 @@
-package com.pojo;
+ package com.pojo;
 
 import java.awt.AWTException;
 import java.awt.Desktop.Action;
@@ -6,6 +6,7 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.Set;
 
@@ -31,7 +32,7 @@ public class ClkthumbNail extends BaseClass {
 	@FindBy(id = "profileCard")
 	private WebElement editProject;
 	
-	@FindBy(xpath = "//div[@class='sc-jlRLRk cbTvaY css-2b097c-container']")
+	@FindBy(xpath = "/html[1]/body[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]")
 	private WebElement projectStatus;
 	
 	@FindBy(xpath = "//div[contains(text(),'Ongoing')]")
@@ -43,7 +44,7 @@ public class ClkthumbNail extends BaseClass {
 	@FindBy(xpath = "//button[@id='sidebarButton_projects']")
 	private WebElement projectThumbnail;
 	
-	@FindBy(xpath = "//button[@id='sidebarButton_portfolio']")
+	@FindBy(xpath = "(//button[@class='ProjectCard_actionButton__2yTLi'])[1]")
 	private WebElement showCaseThumbnail;
 	
 	@FindBy(xpath = "//div[@class='sc-pQSRh eYDEVP']")
@@ -55,7 +56,7 @@ public class ClkthumbNail extends BaseClass {
 	@FindBy(xpath = "//input[@id='searchField']")
 	private WebElement searchField;
 	
-	@FindBy(xpath = "(//div[@class='sc-gVkuDy lmuuAO'])[1]")
+	@FindBy(xpath = "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]")
 	private WebElement unitThumbNail;
 	
 	@FindBy(xpath = "//button[@class='sc-qQlgh dnZKXh']")
@@ -119,16 +120,13 @@ public class ClkthumbNail extends BaseClass {
 		return unitThumbNail;
 	}
 	
-	public void thumbNail() throws AWTException, InterruptedException {
+	public void thumbNail() throws AWTException, InterruptedException, IOException {
 
+		Thread.sleep(10000);
+		insertText(getsearchField(), valueFromProperty("projectname"));
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-
-		insertText(getsearchField(), "20/01");
-		Thread.sleep(10000);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-		
 		js.executeScript("arguments[0].click()", getOpenProjectTab());
 
 		
@@ -149,18 +147,21 @@ public class ClkthumbNail extends BaseClass {
 		Thread.sleep(5000);
 		clickButton(getProjectThumbnail());
 		Thread.sleep(5000);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
+		
 		insertText(getsearchField(), "GREEN FRONT");
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		
 		js.executeScript("arguments[0].click()", getOpenProjectTab());
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		
 		clickButton(getProjectThumbnail());
 		Thread.sleep(5000);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		
+		
+		insertText(getsearchField(), "GREEN FRONT");
+		Thread.sleep(10000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		
 		
 		clickButton(getShowCaseThumbnail());
@@ -175,20 +176,6 @@ public class ClkthumbNail extends BaseClass {
 			if (!par.equals(x)) {
 				driver.switchTo().window(x);
 				Thread.sleep(10000);
-				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-				clickButton(getCloseButton());
-				Thread.sleep(5000);
-				clickButton(getshowCaseSearch());
-				Thread.sleep(5000);
-				js.executeScript("arguments[0].click()", getshowCaseSearch());
-				Thread.sleep(10000);
-				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-	//			js.executeScript("arguments[0].setAttribute('value','GREEN FRONT')", getshowcaseSearchText());
-				insertText(getshowcaseSearchText(), "GREEN FRONT");
-	//			insertText(getshowCaseSearch(), "GREEN FRONT");
-				Thread.sleep(5000);
-				clickButton(getshowCaseProject());
-				Thread.sleep(5000);
 				driver.close();
 			}
 			driver.switchTo().window(par);
@@ -197,7 +184,8 @@ public class ClkthumbNail extends BaseClass {
 		Thread.sleep(5000);
 		
 		clickButton(getProjectThumbnail());
-		
+		Thread.sleep(10000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		Actions a  = new Actions(driver);
 		a.moveToElement(getUnitThumbNail()).build().perform();			
 		Thread.sleep(5000);

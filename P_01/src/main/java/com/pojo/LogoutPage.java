@@ -19,7 +19,7 @@ public class LogoutPage extends BaseClass {
 	@FindBy(xpath = "//button[@id='sidebarButton_Workspaces']")
 	private WebElement workSpaceButton;
 	
-	@FindBy(xpath = "//div[@class='sc-iNGGcK fcjTJT']")
+	@FindBy(xpath = "(//div[normalize-space()='Log out'])[2]")
 	private WebElement logOutButton;
 	
 	
@@ -40,9 +40,9 @@ public class LogoutPage extends BaseClass {
 
 	clickButton(getWorkSpaceButton());
 	
-	JavascriptExecutor js = (JavascriptExecutor) driver;
-	js.executeScript("arguments[0].click()", getlogOutButton());
-//	clickButton(getlogOutButton());
+//	JavascriptExecutor js = (JavascriptExecutor) driver;
+//	js.executeScript("arguments[0].click()", getlogOutButton());
+	clickButton(getlogOutButton());
 		
 		
 	}

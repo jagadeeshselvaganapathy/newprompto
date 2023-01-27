@@ -28,7 +28,7 @@ public class CheckChildObject extends BaseClass {
 	
 	}
 	@When("user validate click chldobjs")
-	public void userValidateClickChldobjs() throws InterruptedException, AWTException {
+	public void userValidateClickChldobjs() throws InterruptedException, AWTException, IOException {
 		
 		ClkChldObjs c = new ClkChldObjs();
     	c.clkChldObjs();

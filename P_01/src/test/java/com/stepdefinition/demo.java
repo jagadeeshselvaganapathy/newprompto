@@ -33,7 +33,7 @@ public class demo extends BaseClass{
 	
 
 	@When("user validate click showcaseone")
-	public void userValidateClickShowcaseone() throws AWTException, InterruptedException {
+	public void userValidateClickShowcaseone() throws AWTException, InterruptedException, IOException {
 		
 		ClkUpload c = new ClkUpload();
     	c.clkUpload();

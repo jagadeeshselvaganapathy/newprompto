@@ -29,7 +29,7 @@ public class CheckUploadFile extends BaseClass{
 	
 	}
 	@When("user validate click upload")
-	public void userValidateClickUpload() throws AWTException, InterruptedException {
+	public void userValidateClickUpload() throws AWTException, InterruptedException, IOException {
 		
 		ClkUpload c = new ClkUpload();
     	c.clkUpload();
