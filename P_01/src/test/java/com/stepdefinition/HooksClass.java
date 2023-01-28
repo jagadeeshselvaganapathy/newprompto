@@ -3,9 +3,13 @@ package com.stepdefinition;
 import java.io.IOException;
 import java.time.Duration;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+
 import com.base.BaseClass;
 
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 
@@ -36,7 +40,10 @@ public class HooksClass extends BaseClass {
 
 		driver.manage().deleteAllCookies();
 		driver.quit();
-		
+    	
 	}
+    
+
+
 
 }

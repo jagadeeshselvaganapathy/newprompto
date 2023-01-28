@@ -29,7 +29,7 @@ public class ClkPopups  extends BaseClass{
 	@FindBy(xpath = "//span[normalize-space()='cancel']")
 	private WebElement cancelButton;
 
-	@FindBy(xpath = "(//button[@class='ProjectCard_actionButton__2yTLi'])[1]")
+	@FindBy(xpath = "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/button[1]")
 	private WebElement marketPage;
 	
 	@FindBy(xpath = "//*[@data-icon='share-alt']")

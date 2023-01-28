@@ -30,7 +30,7 @@ public class ClkHover extends BaseClass{
 	@FindBy(xpath = "//span[normalize-space()='Settings']")
 	private WebElement settingButton;
 	
-	@FindBy(xpath = "//div[@class='react-contextmenu-wrapper']//div//div[1]//div[1]//div[1]//li[1]")
+	@FindBy(xpath = "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/li[1]/div[2]")
 	private WebElement mediaHover;
 	
 	@FindBy(xpath = "//input[@id='searchField']")

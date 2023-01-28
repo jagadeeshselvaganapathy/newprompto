@@ -4,10 +4,8 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Set;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -25,7 +23,7 @@ public class ClkIcons extends BaseClass{
 		@FindBy(xpath = "//iframe[@title='Modal']")
 		private WebElement iframeSwich;
 		
-		@FindBy(xpath = "//a[@class='appcues-button-success appcues-button']")
+		@FindBy(xpath = "//a[normalize-space()='Go!']")
 		private WebElement goButton;
 		
 		@FindBy(xpath = "//a[normalize-space()='No thanks']")

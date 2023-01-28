@@ -31,13 +31,13 @@ public class ClkColor extends BaseClass {
 	@FindBy(xpath = "//p[normalize-space()='Portfolio']")
 	private WebElement portfolioTab;
 
-	@FindBy(xpath = "(//*[@data-icon='eye-dropper'])[3]")
+	@FindBy(xpath = "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[5]/div[2]/div[1]/div[3]/div[1]")
 	private WebElement pencil;
 
 	@FindBy(xpath = "//div[@class='react-colorful__pointer react-colorful__hue-pointer']")
 	private WebElement color;
 
-	@FindBy(xpath = "(//*[@aria-hidden='true'])[18]")
+	@FindBy(xpath = "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[5]/div[2]/div[1]/div[3]/div[2]")
 	private WebElement colorTick;
 
 	@FindBy(xpath = "//button[@id='sidebarButton_projects']")
@@ -52,16 +52,16 @@ public class ClkColor extends BaseClass {
 	@FindBy(xpath = "//div[normalize-space()='Settings']")
 	private WebElement settingsTab;
 
-	@FindBy(xpath = "(//*[@data-icon='eye-dropper'])[1]")
+	@FindBy(xpath = "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[6]/div[2]/div[1]/div[3]/div[1]")
 	private WebElement pencilTwo;
 
-	@FindBy(xpath = "//div[@class='react-colorful__pointer react-colorful__hue-pointer']")
+	@FindBy(xpath = "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[6]/div[2]/div[1]/div[2]/input[1]")
 	private WebElement colorTwo;
 
-	@FindBy(xpath = "(//*[@aria-hidden='true'])[24]")
+	@FindBy(xpath = "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[6]/div[2]/div[1]/div[3]/div[2]")
 	private WebElement colorTickTwo;
 
-	@FindBy(xpath = "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[7]/div[2]/div[1]/div[2]/input[1]")
+	@FindBy(xpath = "//input[@spellcheck='false']")
 	private WebElement colorcode;
 
 	@FindBy(xpath = "//input[@id='searchField']")
@@ -140,9 +140,9 @@ public class ClkColor extends BaseClass {
 		
 
 		clickButton(getSettingButton());
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		clickButton(getPortfolioTab());
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		clickButton(getPencil());
 		Thread.sleep(10000);
 		Actions a = new Actions(driver);
@@ -165,7 +165,7 @@ public class ClkColor extends BaseClass {
 		clickButton(getShowCaseEditor());
 		Thread.sleep(5000);
 		clickButton(getSettingsTab());
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		clickButton(getPencilTwo());
 		Thread.sleep(8000);
 

@@ -1,11 +1,27 @@
 package com.contantss;
 
-public class ConstantsProps {
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+
+import com.base.BaseClass;
+
+import io.cucumber.java.AfterStep;
+import io.cucumber.java.Scenario;
+
+public class ConstantsProps extends BaseClass{
 	
-	public static String APP_CHROME_DRIVER = "WebDriverManager.chromedriver().setup()";
-	public static String APP_FIREFOX_DRIVER = "WebDriverManager.chromedriver().setup()";
-	public static String APP_EDGE_DRIVER = "WebDriverManager.chromedriver().setup()";
+	@AfterStep
+	public void attachScreenshot(Scenario s) {
+		
+		if (s.isFailed()) {
+			
+			TakesScreenshot screenshot = (TakesScreenshot)driver;
+			byte[] sh = screenshot.getScreenshotAs(OutputType.BYTES);
+			s.attach(sh, "image/png", "ScreenShot");
 	
+		}
+	
+	}
 	
 
 }

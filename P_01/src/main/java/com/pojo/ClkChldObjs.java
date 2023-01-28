@@ -27,10 +27,10 @@ public class ClkChldObjs extends BaseClass{
 		@FindBy(xpath = "//span[normalize-space()='Settings']")
 		private WebElement settingButton;
 		
-		@FindBy(xpath = "//div[@class='ImageUploadTrigger_trigger__icon__7sbv2 ImageUploadTrigger_trigger__icon--medium__2Xh0w']")
+		@FindBy(xpath = "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]")
 		private WebElement profileThumbNail;
 
-		@FindBy(xpath = "//p[@class='DropZoneComponent_dropperText__2DAQq DropZoneComponent_addThumbnail__2RI6Z']")
+		@FindBy(xpath = "//span[normalize-space()='click to browse']")
 		private WebElement dropArea;
 		
 		@FindBy(xpath = "//input[@id='firstName']")
@@ -39,10 +39,10 @@ public class ClkChldObjs extends BaseClass{
 		@FindBy(xpath = "//input[@id='lastName']")
 		private WebElement lastName;
 		
-		@FindBy(xpath = "(//button[@type='submit'])[1]")
+		@FindBy(xpath = "(//button[normalize-space()='Save'])[1]")
 		private WebElement saveButton;
 		
-		@FindBy(xpath = "(//span[@class='Button_button__label__1h86U Button_spanStyle__2u_Xo'])[3]")
+		@FindBy(xpath = "//span[normalize-space()='continue']")
 		private WebElement continueButton;
 		
 		public WebElement getContinueButton() {

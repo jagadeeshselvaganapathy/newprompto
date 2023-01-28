@@ -36,7 +36,7 @@ public class ClkTextfield  extends BaseClass{
 	@FindBy(xpath = "//div[@role='textbox']")
 	private WebElement textBox;
 	
-	@FindBy(xpath = "//div[@class='RichTextField_editIcon__2FvU8']")
+	@FindBy(xpath = "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[1]/div[3]")
 	private WebElement nodePadEdit;
 	
 	@FindBy(xpath = "(//div[@data-slate-object='block'])[2]")
@@ -48,7 +48,7 @@ public class ClkTextfield  extends BaseClass{
 	@FindBy(xpath = "//p[normalize-space()='USPs']")
 	private WebElement uspButton;
 	
-	@FindBy(xpath = "//div[@class='Toolbar_actionFieldsRight__KOZTF']")
+	@FindBy(xpath = "//span[normalize-space()='Add New USP']")
 	private WebElement addUspButton;
 	
 	@FindBy(xpath = "//input[@id='headline']")

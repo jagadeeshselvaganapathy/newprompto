@@ -27,7 +27,7 @@ public class ClkLink extends BaseClass{
 	@FindBy(xpath = "//a[normalize-space()='our FAQ']")
 	private WebElement faqLink;
 	
-	@FindBy(xpath = "//li[@class='kb-header__company-website-link']//a[normalize-space()='Login']")
+	@FindBy(xpath = "(//a[normalize-space()='Login'])[1]")
 	private WebElement loginButton;
 	
 	@FindBy(xpath = "//span[normalize-space()='forgot password?']")

@@ -148,7 +148,7 @@ public class ClkthumbNail extends BaseClass {
 		clickButton(getProjectThumbnail());
 		Thread.sleep(5000);
 		
-		insertText(getsearchField(), "GREEN FRONT");
+		insertText(getsearchField(), valueFromProperty("searchproject"));
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		
@@ -159,7 +159,7 @@ public class ClkthumbNail extends BaseClass {
 		Thread.sleep(5000);
 		
 		
-		insertText(getsearchField(), "GREEN FRONT");
+		insertText(getsearchField(), valueFromProperty("searchproject"));
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		

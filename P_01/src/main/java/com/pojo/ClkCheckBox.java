@@ -1,4 +1,4 @@
-package com.pojo;
+ package com.pojo;
 
 import java.awt.AWTException;
 import java.io.IOException;
@@ -60,22 +60,22 @@ public class ClkCheckBox extends BaseClass{
 	@FindBy(xpath = "//p[normalize-space()='USPs']")
 	private WebElement upsTab;
 	
-	@FindBy(xpath = "//div[@class='Toolbar_actionFieldsRight__KOZTF']")
+	@FindBy(xpath = "//span[normalize-space()='Add New USP']")
 	private WebElement addNewUps;
 	
-	@FindBy(xpath = "(//div[@class='Checkbox Checkbox_checkbox__2pNqg checked'])[1]")
+	@FindBy(xpath = "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]")
 	private WebElement uspCheckBox;
 	
-	@FindBy(xpath = "(//div[@role='checkbox'])[1]")
+	@FindBy(xpath = "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]")
 	private WebElement uspUncheckBox;
 	
 	@FindBy(xpath = "//p[normalize-space()='Turntables']")
 	private WebElement turnTableTab;
 	
-	@FindBy(xpath = "//span[@class='Button_button__label__1h86U Button_spanStyle__2u_Xo']")
+	@FindBy(xpath = "//span[normalize-space()='Add New Turntable']")
 	private WebElement addNewTurnTable;
 	
-	@FindBy(xpath = "(//div[@class='Checkbox Checkbox_checkbox__2pNqg checked'])[1]")
+	@FindBy(xpath = "/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]")
 	private WebElement checkTurnTable;
 	
 	@FindBy(xpath = "//input[@id='searchField']")
@@ -165,17 +165,17 @@ public class ClkCheckBox extends BaseClass{
 	clickButton(getSettingTab());
 	Thread.sleep(5000);
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-	clickButton(getPortalTab());
-	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-	Thread.sleep(5000);
-	clickButton(getCheckBox());
-	Thread.sleep(5000);
-	clickButton(getUnCheckBox());
-	Thread.sleep(5000);
-	clickButton(getCheckBox2());
-	Thread.sleep(5000);
-	clickButton(getUncheckBox2());
-	Thread.sleep(5000);	
+//	clickButton(getPortalTab());
+//	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
+//	Thread.sleep(5000);
+//	clickButton(getCheckBox());
+//	Thread.sleep(5000);
+//	clickButton(getUnCheckBox());
+//	Thread.sleep(5000);
+//	clickButton(getCheckBox2());
+//	Thread.sleep(5000);
+//	clickButton(getUncheckBox2());
+//	Thread.sleep(5000);	
 	clickButton(getProjectTab());
 	
 	Thread.sleep(10000);

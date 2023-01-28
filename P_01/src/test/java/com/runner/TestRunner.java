@@ -8,18 +8,16 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src\\test\\resources\\Features\\19_CheckDragAndDrop.feature",glue = "com.stepdefinition", dryRun = false
-,monochrome = true,
- snippets = SnippetType.CAMELCASE )
+@CucumberOptions(plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
+features = "src\\test\\resources\\Features\\",
+glue = "com.stepdefinition", 
+dryRun = false,
+monochrome = true,
+snippets = SnippetType.CAMELCASE )
 public class TestRunner {
 	
 
 }
 
  
-//clkIcon
-//ChkNewTab
-//clktab
-//clkpopups --helpbutton doubt
-//ClkTextfield
-//clkupload
+

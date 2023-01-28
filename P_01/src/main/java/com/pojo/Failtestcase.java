@@ -1,14 +1,9 @@
 package com.pojo;
 
 import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
 import java.time.Duration;
 
 import org.junit.Assert;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -17,9 +12,9 @@ import com.base.BaseClass;
 
 
 
-public class ChkButton extends BaseClass {
-
-	public ChkButton() {
+public class Failtestcase extends BaseClass{
+	
+	public Failtestcase() {
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -78,12 +73,16 @@ public class ChkButton extends BaseClass {
 	
 	
 	
-	public void chkButton() throws AWTException, InterruptedException {
+	public void failtestcase() throws AWTException, InterruptedException {
 		
 
-		
-		Thread.sleep(30000);
+		Thread.sleep(10000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		clickButton(getAddProjectButton());
+	    String url = driver.getCurrentUrl();
+	    boolean contains = url.contains("xyz");
+	    Assert.assertTrue("verifyUrl",contains);
+	    
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		clickButton(getCancelButton());
@@ -101,5 +100,6 @@ public class ChkButton extends BaseClass {
 		Thread.sleep(10000);
 		
 	}
+
 
 }

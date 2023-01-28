@@ -24,23 +24,13 @@ public class Browser {
 		  WebDriverManager.chromedriver().setup();
 			WebDriver driver = new ChromeDriver();
 			driver.manage().window().maximize();
-			driver.get("https://devapp.prompto.com/en/projects/mP6KrpvAs5/projectShowcase");
+			driver.get("https://devapp.prompto.com/en/projects");
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2000));
 			driver.findElement(By.id("username")).sendKeys("nishma+01@qaoncloud.com");
 			driver.findElement(By.id("password")).sendKeys("test@123");
 			driver.findElement(By.id("button_signInButton")).click();
 			
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-			Thread.sleep(10000);
-			driver.findElement(By.xpath("//span[@class='Button_button__label__1h86U Button_spanStyle__2u_Xo']")).click();
 			
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-			Thread.sleep(7000);
-			
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-	
-			//((JavascriptExecutor) driver).executeScript("document.getElementById('locatorid').style.backgroundColor = 'lightblue';");
-	
 			
 			
 			
