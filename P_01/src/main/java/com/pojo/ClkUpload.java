@@ -112,7 +112,7 @@ public class ClkUpload extends BaseClass{
 	rb.keyRelease(KeyEvent.VK_V);
 	rb.keyPress(KeyEvent.VK_ENTER);
 	rb.keyRelease(KeyEvent.VK_ENTER);
-		Thread.sleep(20000);
+		Thread.sleep(30000);
 		
 		clickButton(getAddMediaButton());
 		
@@ -176,7 +176,7 @@ public class ClkUpload extends BaseClass{
 	
 	
 	
-		Thread.sleep(20000);
+		Thread.sleep(30000);
 			
 			clickButton(getAddMediaButton());
 		
@@ -192,14 +192,14 @@ public class ClkUpload extends BaseClass{
 			rb.keyRelease(KeyEvent.VK_V);
 			rb.keyPress(KeyEvent.VK_ENTER);
 			rb.keyRelease(KeyEvent.VK_ENTER);
-				Thread.sleep(15000);
+				Thread.sleep(20000);
 			
 				clickButton(getAddMediaButton());
 				
 			js.executeScript("arguments[0].click()", getUpload360Tour());
 			Thread.sleep(5000);
 			insertText(getUpload360TourCode(), valueFromProperty("tourcode"));
-			Thread.sleep(5000);
+			Thread.sleep(10000);
 			clickButton(getLink360Tour());
 			Thread.sleep(8000);
 		

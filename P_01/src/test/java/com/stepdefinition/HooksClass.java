@@ -34,9 +34,15 @@ public class HooksClass extends BaseClass {
 	@After
 	public void afterExecution(Scenario s) {
 
-	//	TakesScreenshot screenshot = (TakesScreenshot) driver;
-	//	byte[] sh = screenshot.getScreenshotAs(OutputType.BYTES);
-	//	s.embed(sh, "image/png");
+	
+          if (s.isFailed()) {
+			
+			TakesScreenshot screenshot = (TakesScreenshot)driver;
+			byte[] sh = screenshot.getScreenshotAs(OutputType.BYTES);
+			s.attach(sh, "image/png", "ScreenShot");
+	
+		}
+	
 
 		driver.manage().deleteAllCookies();
 		driver.quit();

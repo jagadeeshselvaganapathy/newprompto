@@ -13,14 +13,7 @@ public class ConstantsProps extends BaseClass{
 	@AfterStep
 	public void attachScreenshot(Scenario s) {
 		
-		if (s.isFailed()) {
-			
-			TakesScreenshot screenshot = (TakesScreenshot)driver;
-			byte[] sh = screenshot.getScreenshotAs(OutputType.BYTES);
-			s.attach(sh, "image/png", "ScreenShot");
-	
-		}
-	
+		
 	}
 	
 

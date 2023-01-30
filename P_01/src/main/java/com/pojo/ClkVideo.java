@@ -60,8 +60,18 @@ public class ClkVideo extends BaseClass{
 	@FindBy(xpath = "//input[@id='searchField']")
 	private WebElement searchField;
 	
+	@FindBy(xpath = "( //div[normalize-space()='Clear'])[2]")
+	private WebElement clearIntroVideo;
 	
 	
+	
+	
+	public WebElement getClearIntroVideo() {
+		return clearIntroVideo;
+	}
+
+
+
 	public WebElement getSearchField() {
 		return searchField;
 	}
@@ -202,8 +212,10 @@ public class ClkVideo extends BaseClass{
 		a.moveToElement(getSampleVideo()).build().perform();
 		Thread.sleep(5000);
 		getSampleVideo().findElement(By.xpath("( //div[normalize-space()='Set as intro video'])[2]")).click();
-//		clickButton(getIntroVideo());
 		Thread.sleep(10000);
+		clickButton(getClearIntroVideo());
+		Thread.sleep(10000);
+		
 		
 		
 	

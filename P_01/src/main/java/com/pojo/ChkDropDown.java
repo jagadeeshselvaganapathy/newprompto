@@ -143,16 +143,16 @@ public class ChkDropDown extends BaseClass{
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		js.executeScript("arguments[0].click()", getOpenProjectTab());
-		Thread.sleep(5000);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-		clickButton(getEditProject());
-		Thread.sleep(5000);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-		clickButton(getProjectStatus());
-		js.executeScript("arguments[0].click()", getOngoingStatus());
-		Thread.sleep(5000);
-		clickButton(getSaveButton());
-		Thread.sleep(10000);
+			Thread.sleep(5000);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
+			clickButton(getEditProject());
+			Thread.sleep(5000);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
+			clickButton(getProjectStatus());
+			js.executeScript("arguments[0].click()", getOngoingStatus());
+			Thread.sleep(5000);
+			clickButton(getSaveButton());
+			Thread.sleep(10000);
 		
 		clickButton(getUnitTabButton());
 		Thread.sleep(5000);
