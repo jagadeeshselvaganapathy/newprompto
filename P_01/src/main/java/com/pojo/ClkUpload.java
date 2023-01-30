@@ -113,6 +113,7 @@ public class ClkUpload extends BaseClass{
 	rb.keyPress(KeyEvent.VK_ENTER);
 	rb.keyRelease(KeyEvent.VK_ENTER);
 		Thread.sleep(30000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		
 		clickButton(getAddMediaButton());
 		
@@ -177,6 +178,7 @@ public class ClkUpload extends BaseClass{
 	
 	
 		Thread.sleep(30000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 			
 			clickButton(getAddMediaButton());
 		
@@ -195,6 +197,7 @@ public class ClkUpload extends BaseClass{
 				Thread.sleep(20000);
 			
 				clickButton(getAddMediaButton());
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 				
 			js.executeScript("arguments[0].click()", getUpload360Tour());
 			Thread.sleep(5000);

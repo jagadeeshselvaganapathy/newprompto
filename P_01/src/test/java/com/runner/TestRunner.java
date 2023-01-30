@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
-features = "src\\test\\resources\\Features\\",
+features = "src\\test\\resources\\Features\\18_Checkvideo.feature",
 glue = "com.stepdefinition", 
 dryRun = false,
 monochrome = true,
