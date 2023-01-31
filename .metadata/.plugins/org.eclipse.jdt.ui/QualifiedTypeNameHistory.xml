@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="io.cucumber.java.en.Given"/>
-<fullyQualifiedTypeName name="io.cucumber.java.en.When"/>
-<fullyQualifiedTypeName name="io.cucumber.java.en.Then"/>
-<fullyQualifiedTypeName name="com.base.BaseClass"/>
 <fullyQualifiedTypeName name="com.stepdefinition.SettingupApplication"/>
 <fullyQualifiedTypeName name="com.pojo.SettingupPage"/>
 <fullyQualifiedTypeName name="com.google.common.util.concurrent.ClosingFuture.ClosingCallable"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.By"/>
 <fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="dev.failsafe.internal.util.Assert"/>
+<fullyQualifiedTypeName name="com.base.BaseClass"/>
+<fullyQualifiedTypeName name="io.cucumber.java.en.Given"/>
+<fullyQualifiedTypeName name="io.cucumber.java.en.When"/>
+<fullyQualifiedTypeName name="io.cucumber.java.en.Then"/>
+<fullyQualifiedTypeName name="com.pojo.FailedOne"/>
 </qualifiedTypeNameHistroy>

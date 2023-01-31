@@ -39,6 +39,7 @@
 		<!-- slideout menu -->
 		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
 			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></a></li>
 		</ul>
 		<!-- report name -->
@@ -48,7 +49,7 @@
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<a href='#!'>
-			<span class='label blue darken-3 suite-start-time'>Jan 30, 2023 04:35:07 PM</span>
+			<span class='label blue darken-3 suite-start-time'>Jan 31, 2023 11:38:03 AM</span>
 			</a>
 		</ul>
 	</div>
@@ -63,7 +64,7 @@
 				<i class='material-icons'>warning</i> Status
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
-										<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+										<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -102,11 +103,11 @@
 	<div class='subview-left left'>
 		<div class='view-summary'>
 			<ul id='test-collection' class='test-collection'>
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>Prompto Portal Testing ninteen</span>
-						<span class='test-time'>Jan 30, 2023 04:35:08 PM</span>
-						<span class='test-status right pass'>Pass</span>
+						<span class='test-name'>Prompto Portal Testing failing</span>
+						<span class='test-time'>Jan 31, 2023 11:38:05 AM</span>
+						<span class='test-status right fail'>Fail</span>
 					</div>
 					<div class='test-content hide'>
 <div class="sr-filters bdd-filters">
@@ -116,30 +117,47 @@
 	<a class="btn-floating waves-effect waves-light clear grey" title="clear"><i class='material-icons'>clear</i></a>
 </div>
 
-<div class='scenario node' test-id='2' status='pass'>
+<div class='scenario node' test-id='2' status='fail'>
 
-	<span class='duration right label'>00 04 02.297</span>
+	<span class='duration right label'>00 01 07.003</span>
 	<div class="bdd-test">
-		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario: validating the Prompto Portal check video</div>
+		<div class="scenario-name"><span class='status fail' title='Fail'><i class='material-icons'>cancel</i></span> Scenario: validating the Prompto Portal check for failing</div>
 	</div>
 	
 	
 	
 	<ul class='steps'>
 		<li test-id='4' class='node given Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinition.CheckVideo.userWithValidCredentialsTheyLoginVideo())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given user with valid credentials they login video</div>
+			<div class="step-name" title="(com.stepdefinition.Failcases.userWithValidCredentialsTheyLoginFailing())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given user with valid credentials they login failing</div>
 
 
 		</li>
-		<li test-id='5' class='node when Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinition.CheckVideo.userValidateCheckVideo())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When user validate check video</div>
+		<li test-id='5' class='node when Fail' status='Fail'>
+			<div class="step-name" title="(com.stepdefinition.Failcases.userValidateCheckFailing())"><span class='status fail' title='Fail'><i class='material-icons'>cancel</i></span>When user validate check failing</div>
 
 
+					<textarea disabled class="code-block">java.lang.AssertionError: verified
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at com.pojo.FailedOne.chkButton(FailedOne.java:88)
+	at com.stepdefinition.Failcases.userValidateCheckFailing(Failcases.java:33)
+	at ?.user validate check failing(file:///C:/Users/SR%20JAGADEESH/eclipse-workspace4/P_01/src/test/resources/Features/20_FailedTest.feature:5)
+</textarea>
 		</li>
-		<li test-id='6' class='node then Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinition.CheckVideo.userLogoutVideo())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then user logout video</div>
+		<li test-id='6' class='node then Skip' status='Skip'>
+			<div class="step-name" title="(com.stepdefinition.Failcases.userLogoutFailing())"><span class='status skip' title='Skip'><i class='material-icons'>redo</i></span>Then user logout failing</div>
 
 
+					<div class="node-step">Step skipped</div>
+		</li>
+		<li test-id='7' class='node * Pass' status='Pass'>
+			<div class="step-name" title="(AFTER)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>com.stepdefinition.HooksClass.afterExecution(io.cucumber.java.Scenario)</div>
+
+
+					<div class="node-step">ScreenShot</div>
+					<div class='screenshots'>
+						<img width='80' height='40' onerror='this.style.display="none"' data-featherlight='../embedded1.png' src='../embedded1.png'>
+					</div>
 		</li>
 	</ul>
 </div>
@@ -175,12 +193,12 @@
                     <canvas id='parent-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='$100%'>
-                    <span class='strong'>1</span> features passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='$0%'>
+                    <span class='strong'>0</span> features passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>
-                    0</span> features failed, 
+                    <span class='strong tooltipped' data-position='top' data-tooltip='100%'>
+                    1</span> features failed, 
                     <span class='strong tooltipped' data-position='top' data-tooltip='0%'>
                     0</span> skipped
                 </div>
@@ -193,12 +211,12 @@
                     <canvas id='child-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='100%'>
-                    <span class='strong'>1</span> scenarios passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='0%'>
+                    <span class='strong'>0</span> scenarios passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>
-                    0</span> scenarios failed, 
+                    <span class='strong tooltipped' data-position='top' data-tooltip='100%'>
+                    1</span> scenarios failed, 
                     <span class='strong tooltipped' data-position='top' data-tooltip='0%'>
                     0</span> skipped, 
                     <span class='strong tooltipped' data-position='top' data-tooltip='0%'>
@@ -213,14 +231,14 @@
                     <canvas id='grandchild-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='100%'>
-                    <span class='strong'>3</span> steps passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='50%'>
+                    <span class='strong'>2</span> steps passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>
-                    0</span> steps failed, 
-                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>
-                    0</span> skipped, 
+                    <span class='strong tooltipped' data-position='top' data-tooltip='25%'>
+                    1</span> steps failed, 
+                    <span class='strong tooltipped' data-position='top' data-tooltip='25%'>
+                    1</span> skipped, 
                     <span class='strong tooltipped' data-position='top' data-tooltip='0%'>
                     0</span> others
                 </div>
@@ -238,7 +256,68 @@
         </div>
     </div>
 </div></div>
-<!-- test view --><div id='dashboard-view' class='view hide'>
+<!-- test view --><div id='exception-view' class='view hide'>
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+				<i class='material-icons'>search</i> Search
+				</a>
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+	<div class='subview-left left'>
+		<div class='view-summary'>
+			<ul id='exception-collection' class='exception-collection'>
+				<li class='exception displayed active'>
+					<div class='exception-heading'>
+						<span class='exception-name'>java.lang.AssertionError</span>
+						<span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+					</div>
+					<div class='exception-content hide'>
+						<div class='exception-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>StackTrace</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 31, 2023 11:38:39 AM</td>
+										<td class='linked' test-id='5'>When user validate check failing</td>
+										<td>
+											<textarea disabled class="code-block">java.lang.AssertionError: verified
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at com.pojo.FailedOne.chkButton(FailedOne.java:88)
+	at com.stepdefinition.Failcases.userValidateCheckFailing(Failcases.java:33)
+	at ?.user validate check failing(file:///C:/Users/SR%20JAGADEESH/eclipse-workspace4/P_01/src/test/resources/Features/20_FailedTest.feature:5)
+</textarea>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='exception-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- exception view --><div id='dashboard-view' class='view hide'>
 	<div class='card-panel transparent np-v'>
 		<h5>Dashboard</h5>
 
@@ -258,25 +337,25 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>3</div>
+					<div class='panel-lead'>4</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Jan 30, 2023 04:35:07 PM</div>
+					<div class='panel-lead'>Jan 31, 2023 11:38:03 AM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Jan 30, 2023 04:39:10 PM</div>
+			 		<div class='panel-lead'>Jan 31, 2023 11:39:12 AM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>00 04 03.515</div>
+					<div class='panel-lead'>00 01 08.668</div>
 				</div>
 			</div>
 		</div>
@@ -288,34 +367,34 @@
 		<script>
 			var statusGroup = {
                 parentCount: 1,
-				passParent: 1,
-				failParent: 0,
+				passParent: 0,
+				failParent: 1,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
 				childCount: 1,
-				passChild: 1,
-				failChild: 0,
+				passChild: 0,
+				failChild: 1,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
 				skipChild: 0,
 				infoChild: 0,
-				grandChildCount: 3,
-				passGrandChild: 3,
-				failGrandChild: 0,
+				grandChildCount: 4,
+				passGrandChild: 2,
+				failGrandChild: 1,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
 				warningGrandChild: 0,
-				skipGrandChild: 0,
+				skipGrandChild: 1,
 				infoGrandChild: 0,
 			};
 			</script>
 		
 		<script>
 			var timeline = {
-			        "Prompto Portal Testing ninteen":242.308
+			        "Prompto Portal Testing failing":67.018
 			};
 		</script>
 		
